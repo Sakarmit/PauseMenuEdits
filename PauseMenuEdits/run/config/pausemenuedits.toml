@@ -1,1 +1,15 @@
+#Title thats located at the top middle of the pause screen
+"Menu Title" = "Pause Menu"
+
+["Default Buttons"]
+	#Format: [Horizontal Position, Vertical Position]
+	#
+	"UnPause Button     " = [-101, 70]
+	"Advancement Button" = [-102, 45]
+	"Statistics Button " = [4, 45]
+	"Feedback Button   " = [-102, 20]
+	"Bug Report Button " = [4, 20]
+	"Options Button    " = [-102, -5]
+	"Lan Button        " = [4, -5]
+	"Quit Button       " = [-102, -30]
 
