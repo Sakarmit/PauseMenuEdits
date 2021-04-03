@@ -44,31 +44,15 @@ public class DefaultPauseMenu extends Screen{
 		   this.addButton(new Button(this.width / 2 + MenuConfig.Statistics_Button.get().get(0), this.height / 2 - MenuConfig.Statistics_Button.get().get(1), 98, 20, new TranslationTextComponent("gui.stats"), (button2) -> {
 	         this.minecraft.displayGuiScreen(new StatsScreen(this, this.minecraft.player.getStats()));
 	      }));
-	      
-	      String s = SharedConstants.getVersion().isStable() ? "https://aka.ms/javafeedback?ref=game" : "https://aka.ms/snapshotfeedback?ref=game";
-	      this.addButton(new Button(this.width / 2 + MenuConfig.Feedback_Button.get().get(0), this.height / 2 - MenuConfig.Feedback_Button.get().get(1), 98, 20, new TranslationTextComponent("menu.sendFeedback"), (button2) -> {
-	         this.minecraft.displayGuiScreen(new ConfirmOpenLinkScreen((open) -> {
-	            if (open) {
-	               Util.getOSType().openURI(s);
-	            }
+		      
+		   this.addButton(new Button(this.width / 2 + MenuConfig.Options_Button.get().get(0), this.height / 2 - MenuConfig.Options_Button.get().get(1), 204, 20, new TranslationTextComponent("menu.options"), (button2) -> {
+		     this.minecraft.displayGuiScreen(new OptionsScreen(this, this.minecraft.gameSettings));
+		  }));
+		      
+	      this.addButton(new Button(this.width / 2 + MenuConfig.Mod_List_Button.get().get(0), this.height / 2 - MenuConfig.Mod_List_Button.get().get(1), 98, 20, new TranslationTextComponent("fml.menu.mods"), (button2) -> {
+	         this.minecraft.displayGuiScreen(new net.minecraftforge.fml.client.gui.screen.ModListScreen(this));
+	      }));
 
-	            this.minecraft.displayGuiScreen(this);
-	         }, s, true));
-	      }));
-	     
-	      this.addButton(new Button(this.width / 2 + MenuConfig.Report_Bug_Button.get().get(0), this.height / 2 - MenuConfig.Report_Bug_Button.get().get(1), 98, 20, new TranslationTextComponent("menu.reportBugs"), (button2) -> {
-	         this.minecraft.displayGuiScreen(new ConfirmOpenLinkScreen((open) -> {
-	            if (open) {
-	               Util.getOSType().openURI("https://aka.ms/snapshotbugs?ref=game");
-	            }
-	            this.minecraft.displayGuiScreen(this);
-	         }, "https://aka.ms/snapshotbugs?ref=game", true));
-	      }));
-	      
-	      this.addButton(new Button(this.width / 2 + MenuConfig.Options_Button.get().get(0), this.height / 2 - MenuConfig.Options_Button.get().get(1), 98, 20, new TranslationTextComponent("menu.options"), (button2) -> {
-	         this.minecraft.displayGuiScreen(new OptionsScreen(this, this.minecraft.gameSettings));
-	      }));
-	      
 	      Button button = this.addButton(new Button(this.width / 2 + MenuConfig.Lan_Button.get().get(0), this.height / 2 - MenuConfig.Lan_Button.get().get(1), 98, 20, new TranslationTextComponent("menu.shareToLan"), (button2) -> {
 	         this.minecraft.displayGuiScreen(new ShareToLanScreen(this));
 	      }));

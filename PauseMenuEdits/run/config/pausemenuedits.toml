@@ -4,12 +4,11 @@
 ["Default Buttons"]
 	#Format: [Horizontal Position, Vertical Position]
 	#
-	"UnPause Button     " = [-101, 70]
+	"UnPause Button     " = [-102, 70]
 	"Advancement Button" = [-102, 45]
 	"Statistics Button " = [4, 45]
-	"Feedback Button   " = [-102, 20]
-	"Bug Report Button " = [4, 20]
-	"Options Button    " = [-102, -5]
+	"Options Button    " = [-102, 20]
+	"Mods List Button " = [-102, -5]
 	"Lan Button        " = [4, -5]
 	"Quit Button       " = [-102, -30]
 

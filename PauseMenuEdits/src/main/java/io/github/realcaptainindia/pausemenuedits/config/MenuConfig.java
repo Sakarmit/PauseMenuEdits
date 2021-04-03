@@ -11,8 +11,7 @@ public class MenuConfig {
 	public static ConfigValue<List<? extends Integer>> Unpause_Button;
 	public static ConfigValue<List<? extends Integer>> Advancement_Button;
 	public static ConfigValue<List<? extends Integer>> Statistics_Button;
-	public static ConfigValue<List<? extends Integer>> Feedback_Button;
-	public static ConfigValue<List<? extends Integer>> Report_Bug_Button;
+	public static ConfigValue<List<? extends Integer>> Mod_List_Button;
 	public static ConfigValue<List<? extends Integer>> Options_Button;
 	public static ConfigValue<List<? extends Integer>> Lan_Button;
 	public static ConfigValue<List<? extends Integer>> Quit_Button;
@@ -31,12 +30,10 @@ public class MenuConfig {
 
 	Statistics_Button  = modconfigfile.defineList("Statistics Button ", Arrays.asList(4,45), in -> in instanceof Integer);
 
-	Feedback_Button    = modconfigfile.defineList("Feedback Button   ", Arrays.asList(-102,20), in -> in instanceof Integer);
+	Options_Button     = modconfigfile.defineList("Options Button    ", Arrays.asList(-102,20), in -> in instanceof Integer);
+	
+	Mod_List_Button  = modconfigfile.defineList("Mods List Button ", Arrays.asList(-102,-5), in -> in instanceof Integer);
 
-	Report_Bug_Button  = modconfigfile.defineList("Bug Report Button ", Arrays.asList(4,20), in -> in instanceof Integer);
-	
-	Options_Button     = modconfigfile.defineList("Options Button    ", Arrays.asList(-102,-5), in -> in instanceof Integer);
-	
 	Lan_Button         = modconfigfile.defineList("Lan Button        ", Arrays.asList(4,-5), in -> in instanceof Integer);
 	
 	Quit_Button        = modconfigfile.defineList("Quit Button       ", Arrays.asList(-102,-30), in -> in instanceof Integer);

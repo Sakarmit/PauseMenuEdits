@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import com.electronwill.nightconfig.core.Config;
 
 import io.github.realcaptainindia.pausemenuedits.config.ConfigBuilder;
+import net.minecraft.client.gui.screen.IngameMenuScreen;
 import net.minecraft.client.gui.screen.MainMenuScreen;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -37,7 +38,7 @@ public class PauseMenuEdits
     public void menuchanger(GuiOpenEvent event)
     {
 //    	if(event.getGui() instanceof IngameMenuScreen) {
-//   		 event.setGui(new DefaultPauseScreen());
+//   		 event.setGui(new DefaultPauseMenu());
 //    	}
     	if(event.getGui() instanceof MainMenuScreen) {
     		 event.setGui(new DefaultPauseMenu());
