@@ -1,5 +1,5 @@
 {
-  "PauseButton": {
+  "Pause Button": {
     "x_pos": -102,
     "y_pos": 70,
     "width": 204,
@@ -27,7 +27,7 @@
     "height": 20,
     "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
   },
-  "Mods List Button": {
+  "Mods Menu": {
     "x_pos": -102,
     "y_pos": -5,
     "width": 98,
@@ -41,7 +41,7 @@
     "height": 20,
     "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
   },
-  "Quit Button": {
+  "Main Menu": {
     "x_pos": -102,
     "y_pos": -30,
     "width": 204,

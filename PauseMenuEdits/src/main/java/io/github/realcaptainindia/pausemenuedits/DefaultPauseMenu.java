@@ -3,7 +3,7 @@ package io.github.realcaptainindia.pausemenuedits;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
-import io.github.realcaptainindia.pausemenuedits.config.MenuConfig;
+import io.github.realcaptainindia.pausemenuedits.config.JsonConfig;
 import net.minecraft.client.gui.advancements.AdvancementsScreen;
 import net.minecraft.client.gui.screen.DirtMessageScreen;
 import net.minecraft.client.gui.screen.MainMenuScreen;
@@ -14,7 +14,6 @@ import net.minecraft.client.gui.screen.ShareToLanScreen;
 import net.minecraft.client.gui.screen.StatsScreen;
 import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.widget.button.ImageButton;
-import net.minecraft.realms.RealmsBridgeScreen;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
@@ -23,100 +22,82 @@ import net.minecraftforge.api.distmarker.Dist;
 public class DefaultPauseMenu extends Screen {
 
 	public DefaultPauseMenu() {
-		super(new TranslationTextComponent(MenuConfig.Menu_Title.get()));
+		super(new TranslationTextComponent(""));
 	}
 
 	protected void init() {
 		this.addButtons();
 	}
-/*
-Button Parameters:
-
-x pos
-y pos
-button x size
-button y size
-texture file location
-function
-
-x location of texture start(make 0 default)
-y location of texture start(make 0 default)
-location shift downward for selected texture(button y size)
-texture file width(use button x size)
-texture file height(use button y size)
-*/
+	
 	private void addButtons() {
-		this.addButton(new ImageButton(this.width / 2 + MenuConfig.Unpause_Button.get().get(0),
-				this.height / 2 - MenuConfig.Unpause_Button.get().get(1), 204, 20, 0, 0, 20,
+		int w = this.width / 2;
+		int h = this.height / 2;
+		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Pause Button").x_pos,
+				h - JsonConfig.Buttons.get("Pause Button").y_pos, JsonConfig.Buttons.get("Pause Button").width,
+				JsonConfig.Buttons.get("Pause Button").height, 0, 0, 20,
 				new ResourceLocation("pausemenuedits:textures/defaultbuttons/button_unselected.png"), 204, 40,
 				(button) -> {
 					this.minecraft.displayGuiScreen((Screen) null);
 				}));
-
-//		this.addButton(new Button(this.width / 2 + MenuConfig.Unpause_Button.get().get(0),
-//				this.height / 2 - MenuConfig.Unpause_Button.get().get(1), 204, 20,
-//				new TranslationTextComponent("menu.returnToGame"), (button2) -> {
-//					this.minecraft.displayGuiScreen((Screen) null);
-//				}));
-
-		this.addButton(new Button(this.width / 2 + MenuConfig.Advancement_Button.get().get(0),
-				this.height / 2 - MenuConfig.Advancement_Button.get().get(1), 98, 20,
-				new TranslationTextComponent("gui.advancements"), (button2) -> {
+		
+		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Advancement Button").x_pos,
+				h - JsonConfig.Buttons.get("Advancement Button").y_pos, JsonConfig.Buttons.get("Advancement Button").width,
+				JsonConfig.Buttons.get("Advancement Button").height, 0, 0, 20,
+				new ResourceLocation("pausemenuedits:textures/defaultbuttons/button_unselected.png"),204, 40,
+				(button) -> {
 					this.minecraft.displayGuiScreen(
 							new AdvancementsScreen(this.minecraft.player.connection.getAdvancementManager()));
 				}));
 
-		this.addButton(new Button(this.width / 2 + MenuConfig.Statistics_Button.get().get(0),
-				this.height / 2 - MenuConfig.Statistics_Button.get().get(1), 98, 20,
-				new TranslationTextComponent("gui.stats"), (button2) -> {
+		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Stats Button").x_pos,
+				h - JsonConfig.Buttons.get("Stats Button").y_pos, JsonConfig.Buttons.get("Stats Button").width,
+				JsonConfig.Buttons.get("Stats Button").height, 0, 0, 20,
+				new ResourceLocation("pausemenuedits:textures/defaultbuttons/button_unselected.png"), 204, 40,
+				(button) -> {
 					this.minecraft.displayGuiScreen(new StatsScreen(this, this.minecraft.player.getStats()));
 				}));
 
-		this.addButton(new Button(this.width / 2 + MenuConfig.Options_Button.get().get(0),
-				this.height / 2 - MenuConfig.Options_Button.get().get(1), 204, 20,
-				new TranslationTextComponent("menu.options"), (button2) -> {
+		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Options Button").x_pos,
+				h - JsonConfig.Buttons.get("Options Button").y_pos, JsonConfig.Buttons.get("Options Button").width,
+				JsonConfig.Buttons.get("Options Button").height, 0, 0, 20,
+				new ResourceLocation("pausemenuedits:textures/defaultbuttons/button_unselected.png"), 204, 40,
+				(button) -> {
 					this.minecraft.displayGuiScreen(new OptionsScreen(this, this.minecraft.gameSettings));
 				}));
 
-		this.addButton(new Button(this.width / 2 + MenuConfig.Mod_List_Button.get().get(0),
-				this.height / 2 - MenuConfig.Mod_List_Button.get().get(1), 98, 20,
-				new TranslationTextComponent("fml.menu.mods"), (button2) -> {
+		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Mods Menu").x_pos,
+				h - JsonConfig.Buttons.get("Mods Menu").y_pos, JsonConfig.Buttons.get("Mods Menu").width,
+				JsonConfig.Buttons.get("Mods Menu").height, 0, 0, 20,
+				new ResourceLocation("pausemenuedits:textures/defaultbuttons/button_unselected.png"), 204, 40,
+				(button) -> {
 					this.minecraft.displayGuiScreen(new net.minecraftforge.fml.client.gui.screen.ModListScreen(this));
 				}));
 
-		Button button = this.addButton(new Button(this.width / 2 + MenuConfig.Lan_Button.get().get(0),
-				this.height / 2 - MenuConfig.Lan_Button.get().get(1), 98, 20,
-				new TranslationTextComponent("menu.shareToLan"), (button2) -> {
+		Button button1 = this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Lan Button").x_pos,
+				h - JsonConfig.Buttons.get("Lan Button").y_pos, JsonConfig.Buttons.get("Lan Button").width,
+				JsonConfig.Buttons.get("Lan Button").height, 0, 0, 20,
+				new ResourceLocation("pausemenuedits:textures/defaultbuttons/button_unselected.png"), 204, 40,
+				(button2) -> {
 					this.minecraft.displayGuiScreen(new ShareToLanScreen(this));
 				}));
-		button.active = this.minecraft.isSingleplayer() && !this.minecraft.getIntegratedServer().getPublic();
+		button1.active = this.minecraft.isSingleplayer() && !this.minecraft.getIntegratedServer().getPublic();
 
-		Button button1 = this.addButton(new Button(this.width / 2 + MenuConfig.Quit_Button.get().get(0),
-				this.height / 2 - MenuConfig.Quit_Button.get().get(1), 204, 20,
-				new TranslationTextComponent("menu.returnToMenu"), (button2) -> {
+		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Main Menu").x_pos,
+				h - JsonConfig.Buttons.get("Main Menu").y_pos, JsonConfig.Buttons.get("Main Menu").width,
+				JsonConfig.Buttons.get("Main Menu").height, 0, 0, 20,
+				new ResourceLocation("pausemenuedits:textures/defaultbuttons/button_unselected.png"), 204, 40,
+				(button) -> {
 					boolean flag = this.minecraft.isIntegratedServerRunning();
-					button2.active = false;
+					button.active = false;
 					this.minecraft.world.sendQuittingDisconnectingPacket();
 					if (flag) {
-						this.minecraft
-								.unloadWorld(new DirtMessageScreen(new TranslationTextComponent("menu.savingLevel")));
+						this.minecraft.unloadWorld(new DirtMessageScreen(new TranslationTextComponent("menu.savingLevel")));
+						this.minecraft.displayGuiScreen(new MainMenuScreen());
 					} else {
 						this.minecraft.unloadWorld();
-					}
-
-					if (flag) {
-						this.minecraft.displayGuiScreen(new MainMenuScreen());
-					} else if (minecraft.isConnectedToRealms()) {
-						RealmsBridgeScreen realmsbridgescreen = new RealmsBridgeScreen();
-						realmsbridgescreen.func_231394_a_(new MainMenuScreen());
-					} else {
 						this.minecraft.displayGuiScreen(new MultiplayerScreen(new MainMenuScreen()));
 					}
-
 				}));
-		if (!this.minecraft.isIntegratedServerRunning()) {
-			button1.setMessage(new TranslationTextComponent("menu.disconnect"));
-		}
 	}
 
 	public void tick() {
