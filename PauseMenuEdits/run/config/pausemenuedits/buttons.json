@@ -1,0 +1,51 @@
+{
+  "PauseButton": {
+    "x_pos": -102,
+    "y_pos": 70,
+    "width": 204,
+    "height": 20,
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
+  },
+  "Advancement Button": {
+    "x_pos": -102,
+    "y_pos": 45,
+    "width": 98,
+    "height": 20,
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
+  },
+  "Stats Button": {
+    "x_pos": 4,
+    "y_pos": 45,
+    "width": 98,
+    "height": 20,
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
+  },
+  "Options Button": {
+    "x_pos": -102,
+    "y_pos": 20,
+    "width": 204,
+    "height": 20,
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
+  },
+  "Mods List Button": {
+    "x_pos": -102,
+    "y_pos": -5,
+    "width": 98,
+    "height": 20,
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
+  },
+  "Lan Button": {
+    "x_pos": 4,
+    "y_pos": -5,
+    "width": 98,
+    "height": 20,
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
+  },
+  "Quit Button": {
+    "x_pos": -102,
+    "y_pos": -30,
+    "width": 204,
+    "height": 20,
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
+  }
+}

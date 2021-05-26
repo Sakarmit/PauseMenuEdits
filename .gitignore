@@ -8,10 +8,7 @@ bin
 
 # idea
 out
-*.ipr
-*.iws
-*.iml
-.idea
+*.toml
 
 # gradle
 build
@@ -19,5 +16,5 @@ build
 
 # other
 eclipse
-run
+audit
 logs
