@@ -14,9 +14,9 @@ displayName="Example Mod" #mandatory
 
 logoFile="examplemod.png" #optional
 
-credits="Thanks for this example mod goes to Java" #optional
+credits="Thanks for this  mod goes to Me" #optional
 
-authors="Love, Cheese and small house plants" #optional
+authors="Me, Myself and I" #optional
 
 description='''
 Description to be added eventually

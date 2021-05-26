@@ -15,29 +15,34 @@ public class MenuConfig {
 	public static ConfigValue<List<? extends Integer>> Options_Button;
 	public static ConfigValue<List<? extends Integer>> Lan_Button;
 	public static ConfigValue<List<? extends Integer>> Quit_Button;
-	
+
 	public static void init(ForgeConfigSpec.Builder modconfigfile) {
-	Menu_Title = modconfigfile.comment("Title thats located at the top middle of the pause screen")
-				  .define("Menu Title", "Pause Menu");
+		Menu_Title = modconfigfile.comment("Title thats located at the top middle of the pause screen")
+				.define("Menu Title", "Pause Menu");
 
-	modconfigfile.push("Default Buttons");
-	
-	modconfigfile.comment("Format: [Horizontal Position, Vertical Position]","");
-	
-	Unpause_Button     = modconfigfile.defineList("UnPause Button     ", Arrays.asList(-102,70), in -> in instanceof Integer);
+		modconfigfile.push("Default Buttons");
 
-	Advancement_Button = modconfigfile.defineList("Advancement Button", Arrays.asList(-102,45), in -> in instanceof Integer);
+		modconfigfile.comment("Format: [Horizontal Position, Vertical Position]", "");
 
-	Statistics_Button  = modconfigfile.defineList("Statistics Button ", Arrays.asList(4,45), in -> in instanceof Integer);
+		Unpause_Button = modconfigfile.defineList("UnPause Button    ", Arrays.asList(-102, 70),
+				in -> in instanceof Integer);
 
-	Options_Button     = modconfigfile.defineList("Options Button    ", Arrays.asList(-102,20), in -> in instanceof Integer);
-	
-	Mod_List_Button  = modconfigfile.defineList("Mods List Button ", Arrays.asList(-102,-5), in -> in instanceof Integer);
+		Advancement_Button = modconfigfile.defineList("Advancement Button", Arrays.asList(-102, 45),
+				in -> in instanceof Integer);
 
-	Lan_Button         = modconfigfile.defineList("Lan Button        ", Arrays.asList(4,-5), in -> in instanceof Integer);
-	
-	Quit_Button        = modconfigfile.defineList("Quit Button       ", Arrays.asList(-102,-30), in -> in instanceof Integer);
+		Statistics_Button = modconfigfile.defineList("Statistics Button ", Arrays.asList(4, 45),
+				in -> in instanceof Integer);
 
-	modconfigfile.pop();
+		Options_Button = modconfigfile.defineList("Options Button    ", Arrays.asList(-102, 20),
+				in -> in instanceof Integer);
+
+		Mod_List_Button = modconfigfile.defineList("Mods List Button  ", Arrays.asList(-102, -5),
+				in -> in instanceof Integer);
+
+		Lan_Button = modconfigfile.defineList("Lan Button        ", Arrays.asList(4, -5), in -> in instanceof Integer);
+
+		Quit_Button = modconfigfile.defineList("Quit Button       ", Arrays.asList(-102, -30),
+				in -> in instanceof Integer);
+		modconfigfile.pop();
 	}
 }
