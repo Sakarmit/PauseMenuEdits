@@ -2,7 +2,7 @@ package io.github.realcaptainindia.pausemenuedits;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import io.github.realcaptainindia.pausemenuedits.config.JsonConfig;
+
 import net.minecraft.client.gui.screen.MainMenuScreen;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;

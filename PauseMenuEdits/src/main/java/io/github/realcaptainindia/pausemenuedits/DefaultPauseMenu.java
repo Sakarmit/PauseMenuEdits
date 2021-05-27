@@ -3,7 +3,6 @@ package io.github.realcaptainindia.pausemenuedits;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
-import io.github.realcaptainindia.pausemenuedits.config.JsonConfig;
 import net.minecraft.client.gui.advancements.AdvancementsScreen;
 import net.minecraft.client.gui.screen.DirtMessageScreen;
 import net.minecraft.client.gui.screen.MainMenuScreen;

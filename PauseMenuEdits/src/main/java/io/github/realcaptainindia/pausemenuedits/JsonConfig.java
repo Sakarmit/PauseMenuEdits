@@ -1,4 +1,4 @@
-package io.github.realcaptainindia.pausemenuedits.config;
+package io.github.realcaptainindia.pausemenuedits;
 
 import java.io.File;
 import java.io.FileReader;
@@ -13,7 +13,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import io.github.realcaptainindia.pausemenuedits.PauseMenuEdits;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 public class JsonConfig {
@@ -49,8 +48,8 @@ public class JsonConfig {
 		list.put("Advancement Button", new ButtonInformation(-102, 45, 98, 20,
 				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
 
-		list.put("Stats Button",
-				new ButtonInformation(4, 45, 98, 20, "pausemenuedits:textures/defaultbuttons/button_unselected.png"));
+		list.put("Stats Button", new ButtonInformation(4, 45, 98, 20, 
+				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
 
 		list.put("Options Button", new ButtonInformation(-102, 20, 204, 20,
 				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
@@ -58,8 +57,8 @@ public class JsonConfig {
 		list.put("Mods Menu", new ButtonInformation(-102, -5, 98, 20,
 				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
 
-		list.put("Lan Button",
-				new ButtonInformation(4, -5, 98, 20, "pausemenuedits:textures/defaultbuttons/button_unselected.png"));
+		list.put("Lan Button", new ButtonInformation(4, -5, 98, 20,
+				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
 
 		list.put("Main Menu", new ButtonInformation(-102, -30, 204, 20,
 				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
