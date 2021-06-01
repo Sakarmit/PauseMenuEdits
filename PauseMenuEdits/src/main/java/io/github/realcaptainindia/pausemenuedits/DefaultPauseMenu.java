@@ -32,43 +32,44 @@ public class DefaultPauseMenu extends Screen {
 		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("UnPause Button").x_pos,
 				h - JsonConfig.Buttons.get("UnPause Button").y_pos, JsonConfig.Buttons.get("UnPause Button").width,
 				JsonConfig.Buttons.get("UnPause Button").height, 0, 0, 20,
-				JsonConfig.Buttons.get("UnPause Button").texture, 204, 40, 
-				Actions.JsontoAction("opengui", "Unpause")));
+				JsonConfig.Buttons.get("UnPause Button").getTexture(), 204, 40, 
+				JsonConfig.Buttons.get("UnPause Button").getAction()));
 
 		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Advancements Button").x_pos,
 				h - JsonConfig.Buttons.get("Advancements Button").y_pos,
 				JsonConfig.Buttons.get("Advancements Button").width,
 				JsonConfig.Buttons.get("Advancements Button").height, 0, 0, 20,
-				JsonConfig.Buttons.get("Advancements Button").texture, 204, 40,
-				Actions.JsontoAction("opengui", "Advancement")));
+				JsonConfig.Buttons.get("Advancements Button").getTexture(), 204, 40,
+				JsonConfig.Buttons.get("Advancements Button").getAction()));
 
 		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Statistics Button").x_pos,
 				h - JsonConfig.Buttons.get("Statistics Button").y_pos,
 				JsonConfig.Buttons.get("Statistics Button").width, JsonConfig.Buttons.get("Statistics Button").height,
-				0, 0, 20, JsonConfig.Buttons.get("Statistics Button").texture, 204, 40, 
-				Actions.JsontoAction("opengui", "Statistics")));
+				0, 0, 20, JsonConfig.Buttons.get("Statistics Button").getTexture(), 204, 40, 
+				JsonConfig.Buttons.get("Statistics Button").getAction()));
 
 		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Options Button").x_pos,
 				h - JsonConfig.Buttons.get("Options Button").y_pos, JsonConfig.Buttons.get("Options Button").width,
 				JsonConfig.Buttons.get("Options Button").height, 0, 0, 20,
-				JsonConfig.Buttons.get("Options Button").texture, 204, 40,
-				Actions.JsontoAction("opengui", "Options")));
+				JsonConfig.Buttons.get("Options Button").getTexture(), 204, 40,
+				JsonConfig.Buttons.get("Options Button").getAction()));
 
 		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Mods List Button").x_pos,
 				h - JsonConfig.Buttons.get("Mods List Button").y_pos, JsonConfig.Buttons.get("Mods List Button").width,
 				JsonConfig.Buttons.get("Mods List Button").height, 0, 0, 20,
-				JsonConfig.Buttons.get("Mods List Button").texture, 204, 40,
-				Actions.JsontoAction("opengui", "Mods List")));
+				JsonConfig.Buttons.get("Mods List Button").getTexture(), 204, 40,
+				JsonConfig.Buttons.get("Mods List Button").getAction()));
 
-		Button button1 = this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Lan Button").x_pos,
+		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Lan Button").x_pos,
 				h - JsonConfig.Buttons.get("Lan Button").y_pos, JsonConfig.Buttons.get("Lan Button").width,
-				JsonConfig.Buttons.get("Lan Button").height, 0, 0, 20, JsonConfig.Buttons.get("Lan Button").texture,
-				204, 40, Actions.JsontoAction("opengui", "Lan")));
+				JsonConfig.Buttons.get("Lan Button").height, 0, 0, 20, JsonConfig.Buttons.get("Lan Button").getTexture(),
+				204, 40, JsonConfig.Buttons.get("Lan Button").getAction()));
 
 		this.addButton(new ImageButton(w + JsonConfig.Buttons.get("Main Menu Button").x_pos,
 				h - JsonConfig.Buttons.get("Main Menu Button").y_pos, JsonConfig.Buttons.get("Main Menu Button").width,
 				JsonConfig.Buttons.get("Main Menu Button").height, 0, 0, 20,
-				JsonConfig.Buttons.get("Main Menu Button").texture, 204, 40,Actions.JsontoAction("opengui", "Quit")));
+				JsonConfig.Buttons.get("Main Menu Button").getTexture(), 204, 40,
+				JsonConfig.Buttons.get("Main Menu Button").getAction()));
 	}
 
 	public void tick() {

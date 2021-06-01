@@ -4,97 +4,76 @@
     "y_pos": 70,
     "width": 204,
     "height": 20,
-    "texture": {
-      "namespace": "pausemenuedits",
-      "path": "textures/defaultbuttons/button_unselected.png"
-    },
     "texstartx": 0,
     "texstarty": 0,
     "action": "opengui",
-    "action_val": "none"
+    "action_val": "Unpause",
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
   },
   "Advancements Button": {
     "x_pos": -102,
     "y_pos": 45,
     "width": 98,
     "height": 20,
-    "texture": {
-      "namespace": "pausemenuedits",
-      "path": "textures/defaultbuttons/button_unselected.png"
-    },
     "texstartx": 0,
     "texstarty": 0,
     "action": "opengui",
-    "action_val": "none"
+    "action_val": "Advancement",
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
   },
   "Statistics Button": {
     "x_pos": 4,
     "y_pos": 45,
     "width": 98,
     "height": 20,
-    "texture": {
-      "namespace": "pausemenuedits",
-      "path": "textures/defaultbuttons/button_unselected.png"
-    },
     "texstartx": 0,
     "texstarty": 0,
     "action": "opengui",
-    "action_val": "none"
+    "action_val": "Statistics",
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
   },
   "Options Button": {
     "x_pos": -102,
     "y_pos": 20,
     "width": 204,
     "height": 20,
-    "texture": {
-      "namespace": "pausemenuedits",
-      "path": "textures/defaultbuttons/button_unselected.png"
-    },
     "texstartx": 0,
     "texstarty": 0,
     "action": "opengui",
-    "action_val": "none"
+    "action_val": "Options",
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
   },
   "Mods List Button": {
     "x_pos": -102,
     "y_pos": -5,
     "width": 98,
     "height": 20,
-    "texture": {
-      "namespace": "pausemenuedits",
-      "path": "textures/defaultbuttons/button_unselected.png"
-    },
     "texstartx": 0,
     "texstarty": 0,
     "action": "opengui",
-    "action_val": "none"
+    "action_val": "Mods List",
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
   },
   "Lan Button": {
     "x_pos": 4,
     "y_pos": -5,
     "width": 98,
     "height": 20,
-    "texture": {
-      "namespace": "pausemenuedits",
-      "path": "textures/defaultbuttons/button_unselected.png"
-    },
     "texstartx": 0,
     "texstarty": 0,
     "action": "opengui",
-    "action_val": "Lan"
+    "action_val": "Lan",
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
   },
   "Main Menu Button": {
     "x_pos": -102,
     "y_pos": -30,
     "width": 204,
     "height": 20,
-    "texture": {
-      "namespace": "pausemenuedits",
-      "path": "textures/defaultbuttons/button_unselected.png"
-    },
     "texstartx": 0,
     "texstarty": 0,
     "action": "opengui",
-    "action_val": "none"
+    "action_val": "Quit",
+    "texture": "pausemenuedits:textures/defaultbuttons/button_unselected.png"
   }
 }
