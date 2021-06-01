@@ -18,66 +18,51 @@ import net.minecraftforge.fml.loading.FMLPaths;
 public class JsonConfig {
 
 	public static Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().disableHtmlEscaping().create();
-	public static Map<String, ButtonInformation> Buttons = new HashMap<String, ButtonInformation>();
+	public static Map<String, CustomButton> Buttons = new HashMap<String, CustomButton>();
 
 	public static void init() {
 		File configFolder = new File(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\buttons.json").toString());
 		try {
 			Files.createParentDirs(configFolder);
 			if (!configFolder.exists() && configFolder.createNewFile()) {
-				Map<String, ButtonInformation> defaultList = defaults();
-				String json = gson.toJson(defaultList, new TypeToken<Map<String, ButtonInformation>>() {
+				Map<String, CustomButton> defaultList = defaults();
+				String json = gson.toJson(defaultList, new TypeToken<Map<String, CustomButton>>() {
 				}.getType());
+				
 				FileWriter writer = new FileWriter(configFolder);
 				writer.write(json);
 				writer.close();
 			}
 			
-			Buttons = gson.fromJson(new FileReader(configFolder), new TypeToken<Map<String, ButtonInformation>>() {
-				}.getType());
+			Buttons = gson.fromJson(new FileReader(configFolder), new TypeToken<Map<String, CustomButton>>() {
+			}.getType());
 		} catch (IOException e) {
-			PauseMenuEdits.LOGGER.info("Something is wrong with the file loading/creation");
+			PauseMenuEdits.LOGGER.info("Something is wrong with the config file");
 		}
 	}
 
-	private static Map<String, ButtonInformation> defaults() {
-		Map<String, ButtonInformation> list = new LinkedHashMap<String, ButtonInformation>();
-		list.put("Pause Button", new ButtonInformation(-102, 70, 204, 20,
-				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
+	private static Map<String, CustomButton> defaults() {
+		Map<String, CustomButton> list = new LinkedHashMap<String, CustomButton>();
+		list.put("UnPause Button", new CustomButton(-102, 70, 204, 20,
+				"pausemenuedits:textures/defaultbuttons/button_unselected.png", 0, 0, "opengui", "none"));
 
-		list.put("Advancement Button", new ButtonInformation(-102, 45, 98, 20,
-				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
+		list.put("Advancements Button", new CustomButton(-102, 45, 98, 20,
+				"pausemenuedits:textures/defaultbuttons/button_unselected.png", 0, 0, "opengui", "none"));
 
-		list.put("Stats Button", new ButtonInformation(4, 45, 98, 20, 
-				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
+		list.put("Statistics Button", new CustomButton(4, 45, 98, 20, 
+				"pausemenuedits:textures/defaultbuttons/button_unselected.png", 0, 0, "opengui", "none"));
 
-		list.put("Options Button", new ButtonInformation(-102, 20, 204, 20,
-				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
+		list.put("Options Button", new CustomButton(-102, 20, 204, 20,
+				"pausemenuedits:textures/defaultbuttons/button_unselected.png", 0, 0, "opengui", "none"));
 
-		list.put("Mods Menu", new ButtonInformation(-102, -5, 98, 20,
-				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
+		list.put("Mods List Button", new CustomButton(-102, -5, 98, 20,
+				"pausemenuedits:textures/defaultbuttons/button_unselected.png", 0, 0, "opengui", "none"));
 
-		list.put("Lan Button", new ButtonInformation(4, -5, 98, 20,
-				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
+		list.put("Lan Button", new CustomButton(4, -5, 98, 20,
+				"pausemenuedits:textures/defaultbuttons/button_unselected.png", 0, 0, "opengui", "Lan"));
 
-		list.put("Main Menu", new ButtonInformation(-102, -30, 204, 20,
-				"pausemenuedits:textures/defaultbuttons/button_unselected.png"));
+		list.put("Main Menu Button", new CustomButton(-102, -30, 204, 20,
+				"pausemenuedits:textures/defaultbuttons/button_unselected.png", 0, 0, "opengui", "none"));
 		return list;
-	}
-
-	public static class ButtonInformation {
-		public final int x_pos;
-		public final int y_pos;
-		public final int width;
-		public final int height;
-		public final String texture;
-
-		public ButtonInformation(int x_pos, int y_pos, int width, int height, String texture) {
-			this.x_pos = x_pos;
-			this.y_pos = y_pos;
-			this.width = width;
-			this.height = height;
-			this.texture = texture;
-		}
 	}
 }

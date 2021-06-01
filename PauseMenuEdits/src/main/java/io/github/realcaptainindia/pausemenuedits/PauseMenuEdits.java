@@ -3,6 +3,7 @@ package io.github.realcaptainindia.pausemenuedits;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.minecraft.client.gui.screen.IngameMenuScreen;
 import net.minecraft.client.gui.screen.MainMenuScreen;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.common.MinecraftForge;
@@ -23,11 +24,11 @@ public class PauseMenuEdits {
 	// Detects when pause menu is launched and updates it to new setup
 	@SubscribeEvent
 	public void menuchanger(GuiOpenEvent event) {
-//    	if(event.getGui() instanceof IngameMenuScreen) {
-//   		 event.setGui(new DefaultPauseMenu());
-//    	}
-		if (event.getGui() instanceof MainMenuScreen) {
-			event.setGui(new DefaultPauseMenu());
-		}
+    	if(event.getGui() instanceof IngameMenuScreen) {
+   		 event.setGui(new DefaultPauseMenu());
+    	}
+//		if (event.getGui() instanceof MainMenuScreen) {
+//			event.setGui(new DefaultPauseMenu());
+//		}
 	}
 }

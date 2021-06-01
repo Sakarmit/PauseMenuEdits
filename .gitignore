@@ -1,21 +1,11 @@
-# eclipse
-bin
-*.launch
-.settings
-.metadata
-.classpath
-.project
-
-# idea
-out
 *.toml
-
-# gradle
 build
 .gradle
-
-# other
 eclipse
 audit
 logs
+saves
 crash-reports
+usercache.json
+usernamecache.json
+*.log

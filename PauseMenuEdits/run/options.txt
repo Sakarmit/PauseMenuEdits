@@ -1,5 +1,5 @@
 version:2586
-autoJump:true
+autoJump:false
 autoSuggestions:true
 chatColors:true
 chatLinks:true
@@ -52,19 +52,19 @@ chatHeightFocused:1.0
 chatDelay: 0.0
 chatHeightUnfocused:0.44366195797920227
 chatScale:1.0
-chatWidth:1.0
+chatWidth:0.18309858441352844
 mipmapLevels:4
 useNativeTransport:true
 mainHand:right
 attackIndicator:1
 narrator:0
-tutorialStep:movement
+tutorialStep:none
 mouseWheelSensitivity:1.0
 rawMouseInput:true
 glDebugVerbosity:1
 skipMultiplayerWarning:false
 hideMatchedNames:true
-joinedFirstServer:false
+joinedFirstServer:true
 syncChunkWrites:true
 key_key.attack:key.mouse.left
 key_key.use:key.mouse.right
