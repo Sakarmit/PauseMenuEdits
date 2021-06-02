@@ -1,4 +1,4 @@
-package io.github.realcaptainindia.pausemenuedits;
+package io.github.realcaptainindia.pausemenuedits.config;
 
 import java.io.File;
 import java.io.FileReader;
@@ -13,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import io.github.realcaptainindia.pausemenuedits.PauseMenuEdits;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 public class JsonConfig {

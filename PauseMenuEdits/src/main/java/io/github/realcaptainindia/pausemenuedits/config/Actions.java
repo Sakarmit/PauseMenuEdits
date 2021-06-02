@@ -1,4 +1,4 @@
-package io.github.realcaptainindia.pausemenuedits.button;
+package io.github.realcaptainindia.pausemenuedits.config;
 
 import io.github.realcaptainindia.pausemenuedits.PauseMenuEdits;
 import net.minecraft.client.Minecraft;

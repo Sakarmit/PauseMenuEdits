@@ -3,6 +3,7 @@ package io.github.realcaptainindia.pausemenuedits;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import io.github.realcaptainindia.pausemenuedits.config.JsonConfig;
 import net.minecraft.client.gui.screen.IngameMenuScreen;
 import net.minecraft.client.gui.screen.MainMenuScreen;
 import net.minecraftforge.client.event.GuiOpenEvent;
@@ -25,7 +26,7 @@ public class PauseMenuEdits {
 	@SubscribeEvent
 	public void menuchanger(GuiOpenEvent event) {
     	if(event.getGui() instanceof IngameMenuScreen) {
-   		 event.setGui(new DefaultPauseMenu());
+   		 event.setGui(new PauseMenuCreator());
     	}
 //		if (event.getGui() instanceof MainMenuScreen) {
 //			event.setGui(new DefaultPauseMenu());

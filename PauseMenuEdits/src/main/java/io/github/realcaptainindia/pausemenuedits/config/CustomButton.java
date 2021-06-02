@@ -1,6 +1,5 @@
-package io.github.realcaptainindia.pausemenuedits;
+package io.github.realcaptainindia.pausemenuedits.config;
 
-import io.github.realcaptainindia.pausemenuedits.button.Actions;
 import net.minecraft.client.gui.widget.button.Button.IPressable;
 import net.minecraft.util.ResourceLocation;
 
