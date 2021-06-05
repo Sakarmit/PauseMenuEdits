@@ -17,7 +17,7 @@ public class PauseMenuEdits {
 	public static final String MODID = "pausemenuedits";
 	
 	public PauseMenuEdits() {
-		ConfigLoader.init();
+		new ConfigLoader();
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 

@@ -1,9 +1,11 @@
 package io.github.realcaptainindia.pausemenuedits.config;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,11 +22,10 @@ public class ConfigLoader {
 	public static Map<String, CustomButton> Buttons = new HashMap<String, CustomButton>();
 	
 	public static final File configFile = new File(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\buttons.json").toString());
-	public static final File assetsFolder = new File(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\textures").toString());
+	public static final File assetsFolder = new File(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\textures\\default.zip").toString());
 	
-	public static void init() {
+	public ConfigLoader() {
 		createMissingFiles();
-		
 		try {
 			//Reads values from Config to a Buttons Map
 			Buttons = gson.fromJson(new FileReader(configFile), new TypeToken<Map<String, CustomButton>>() {
@@ -34,7 +35,7 @@ public class ConfigLoader {
 		}		
 	}
 	
-	static void createMissingFiles(){
+	void createMissingFiles(){
 		try {
 			//Parent Config Folder
 			configFile.getParentFile().mkdirs();
@@ -45,13 +46,15 @@ public class ConfigLoader {
 			}
 			
 			//Asset Folder
-			assetsFolder.mkdir();
+			if(assetsFolder.getParentFile().mkdir()) {
+				populateAssets();
+			}
 		} catch (IOException e) {
 			PauseMenuEdits.LOGGER.info("This went wrong with the mod files" + e.toString());
 		}
 	}
 	
-	static void populateConfig() {
+	void populateConfig() {
 		//Creates list of default values
 		Map<String, CustomButton> defaultList = DefaultButtons.getButtons();
 		String json = gson.toJson(defaultList, new TypeToken<Map<String, CustomButton>>() {
@@ -64,11 +67,21 @@ public class ConfigLoader {
 			writer.write(json);
 			writer.close();
 		} catch (IOException e) {
-			PauseMenuEdits.LOGGER.info("This went wrong with the mod files" + e.toString());
+			PauseMenuEdits.LOGGER.info("This went wrong with the config file" + e.toString());
 		}
 	}
-	
-	static void populateAssets() {
-		
+	void populateAssets() {
+		try(InputStream stream = this.getClass().getResourceAsStream("/assets/pausemenuedits/textures/textures.zip")) {
+			assetsFolder.createNewFile();
+			byte[] buffer = new byte[1800];
+			FileOutputStream outStream = new FileOutputStream(assetsFolder);
+			int i = 0;	
+			while ((i = stream.read(buffer)) != -1) {
+				outStream.write(buffer, 0, i);
+			}
+			outStream.close();
+		} catch (Exception e) {
+			PauseMenuEdits.LOGGER.info("This went wrong with the texture files" + e.toString());
+		}
 	}
 }
