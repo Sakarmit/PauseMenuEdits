@@ -6,8 +6,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.io.FileUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -22,7 +25,7 @@ public class ConfigLoader {
 	public static Map<String, CustomButton> Buttons = new HashMap<String, CustomButton>();
 	
 	public static final File configFile = new File(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\buttons.json").toString());
-	public static final File assetsFolder = new File(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\textures\\default.zip").toString());
+	public static final File assetsFolder = new File(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\textures").toString());
 	
 	public ConfigLoader() {
 		createMissingFiles();
@@ -31,7 +34,7 @@ public class ConfigLoader {
 			Buttons = gson.fromJson(new FileReader(configFile), new TypeToken<Map<String, CustomButton>>() {
 			}.getType());
 		} catch (IOException e) {
-			PauseMenuEdits.LOGGER.info("This went wrong with the mod files" + e.toString());
+			PauseMenuEdits.LOGGER.warn("This went wrong with the mod files" + e.toString());
 		}		
 	}
 	
@@ -46,11 +49,11 @@ public class ConfigLoader {
 			}
 			
 			//Asset Folder
-			if(assetsFolder.getParentFile().mkdir()) {
+			if(assetsFolder.mkdir() || (assetsFolder.list().length == 0)) {
 				populateAssets();
 			}
 		} catch (IOException e) {
-			PauseMenuEdits.LOGGER.info("This went wrong with the mod files" + e.toString());
+			PauseMenuEdits.LOGGER.warn("This went wrong with the mod files" + e.toString());
 		}
 	}
 	
@@ -67,21 +70,17 @@ public class ConfigLoader {
 			writer.write(json);
 			writer.close();
 		} catch (IOException e) {
-			PauseMenuEdits.LOGGER.info("This went wrong with the config file" + e.toString());
+			PauseMenuEdits.LOGGER.warn("This went wrong with the config file" + e.toString());
 		}
 	}
 	void populateAssets() {
-		try(InputStream stream = this.getClass().getResourceAsStream("/assets/pausemenuedits/textures/textures.zip")) {
-			assetsFolder.createNewFile();
-			byte[] buffer = new byte[1800];
-			FileOutputStream outStream = new FileOutputStream(assetsFolder);
-			int i = 0;	
-			while ((i = stream.read(buffer)) != -1) {
-				outStream.write(buffer, 0, i);
-			}
-			outStream.close();
+		try { 
+			URI stream = this.getClass().getResource("/assets/pausemenuedits/textures").toURI();
+			
+			File textureFolder = new File(stream);
+			FileUtils.copyDirectory(textureFolder, assetsFolder);
 		} catch (Exception e) {
-			PauseMenuEdits.LOGGER.info("This went wrong with the texture files" + e.toString());
+			PauseMenuEdits.LOGGER.warn("This went wrong with the texture files" + e.toString());
 		}
 	}
 }
