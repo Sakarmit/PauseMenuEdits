@@ -4,9 +4,9 @@
   <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="net.minecraftforge.userdev.LaunchTesting"/>
   <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dforge.logging.console.level=debug -Dforge.logging.markers=REGISTRIES"/>
   <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value=""/>
-  <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="C:\Users\ayira\Desktop\Pause Menu Edits\PauseMenuEdits\run"/>
+  <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="C:\Users\ayira\Desktop\PauseMenuEdits\PauseMenuEdits\run"/>
   <mapAttribute key="org.eclipse.debug.core.environmentVariables">
-    <mapEntry key="MOD_CLASSES" value="pausemenuedits%%C:\Users\ayira\Desktop\Pause Menu Edits\PauseMenuEdits\bin\main;pausemenuedits%%C:\Users\ayira\Desktop\Pause Menu Edits\PauseMenuEdits\bin\main"/>
+    <mapEntry key="MOD_CLASSES" value="examplemod%%C:\Users\ayira\Desktop\PauseMenuEdits\PauseMenuEdits\bin\main;examplemod%%C:\Users\ayira\Desktop\PauseMenuEdits\PauseMenuEdits\bin\main"/>
     <mapEntry key="MCP_MAPPINGS" value="snapshot_20210309-1.16.5"/>
     <mapEntry key="MCP_VERSION" value="20210115.111550"/>
     <mapEntry key="FORGE_VERSION" value="36.1.0"/>

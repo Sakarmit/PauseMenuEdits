@@ -10,7 +10,7 @@ modId="pausemenuedits" #mandatory
 
 version="${file.jarVersion}" #mandatory
 
-displayName="Example Mod" #mandatory
+displayName="Pause Menu Edits Mod" #mandatory
 
 logoFile="examplemod.png" #optional
 
