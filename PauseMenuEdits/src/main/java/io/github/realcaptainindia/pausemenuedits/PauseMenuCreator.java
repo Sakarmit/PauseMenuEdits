@@ -1,9 +1,10 @@
 package io.github.realcaptainindia.pausemenuedits;
 
 import net.minecraftforge.api.distmarker.OnlyIn;
+
 import com.mojang.blaze3d.matrix.MatrixStack;
 
-import io.github.realcaptainindia.pausemenuedits.config.CustomButton;
+import io.github.realcaptainindia.pausemenuedits.config.ButtonInfo;
 import io.github.realcaptainindia.pausemenuedits.config.ConfigLoader;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.button.ImageButton;
@@ -23,9 +24,9 @@ public class PauseMenuCreator extends Screen {
 		int h = this.height / 2;
 		
 		//Creates all buttons from Buttons Map
-		for (CustomButton val : ConfigLoader.Buttons.values()) {
-			this.addButton(new ImageButton(w + val.x_pos, h - val.y_pos, val.width, val.height, 0, 0, 20,
-					val.getTexture(), 204, 40, val.getAction()));
+		for (ButtonInfo val : ConfigLoader.Buttons.values()) {
+				this.addButton(new ImageButton(w + val.x_pos, h - val.y_pos, val.width, val.height, 0, 0, 20,
+						val.getTexture(), 204, 40, val.getAction()));
 		}
 	}
 

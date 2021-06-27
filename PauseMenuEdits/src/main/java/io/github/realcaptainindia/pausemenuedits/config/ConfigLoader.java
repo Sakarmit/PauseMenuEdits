@@ -1,12 +1,12 @@
 package io.github.realcaptainindia.pausemenuedits.config;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.net.URI;
+import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,33 +22,41 @@ import net.minecraftforge.fml.loading.FMLPaths;
 public class ConfigLoader {
 
 	public static Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().disableHtmlEscaping().create();
-	public static Map<String, CustomButton> Buttons = new HashMap<String, CustomButton>();
+	public static Map<String, ButtonInfo> Buttons = new HashMap<String, ButtonInfo>();
+	public static Map<String, Boolean> boolConfigVals = new HashMap<String, Boolean>();
 	
 	public static final File configFile = new File(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\buttons.json").toString());
 	public static final File assetsFolder = new File(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\textures").toString());
 	
 	public ConfigLoader() {
-		createMissingFiles();
+		createMissingConfig();
 		try {
+			
 			//Reads values from Config to a Buttons Map
-			Buttons = gson.fromJson(new FileReader(configFile), new TypeToken<Map<String, CustomButton>>() {
-			}.getType());
+			String configString = Files.readString(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\buttons.json"));
+			
+			String configBoolean = configString.substring(0, configString.indexOf("\n\n"));
+			String configButtons = configString.substring(configString.indexOf("\n\n"));
+			
+			boolConfigVals = gson.fromJson(configBoolean,new TypeToken<Map<String, Boolean>>() {}.getType());
+			Buttons = gson.fromJson(configButtons, new TypeToken<Map<String, ButtonInfo>>() {}.getType());
+			
 		} catch (IOException e) {
 			PauseMenuEdits.LOGGER.warn("This went wrong with the mod files" + e.toString());
-		}		
+		}
 	}
 	
-	void createMissingFiles(){
+	void createMissingConfig(){
 		try {
-			//Parent Config Folder
+			//Creates Parent Config Folder
 			configFile.getParentFile().mkdirs();
 			
-			//Json Config File
+			//Creates and fills Json Button Config File
 			if(configFile.createNewFile()) {
-				populateConfig();
+				populateButtonConfig();
 			}
 			
-			//Asset Folder
+			//Creates and fills asset Folder
 			if(assetsFolder.mkdir() || (assetsFolder.list().length == 0)) {
 				populateAssets();
 			}
@@ -57,22 +65,23 @@ public class ConfigLoader {
 		}
 	}
 	
-	void populateConfig() {
+	void populateButtonConfig() {
 		//Creates list of default values
-		Map<String, CustomButton> defaultList = DefaultButtons.getButtons();
-		String json = gson.toJson(defaultList, new TypeToken<Map<String, CustomButton>>() {
-		}.getType());
+		
+		String defaultBooleans = gson.toJson(DefaultConfig.getBooleans() , new TypeToken<Map<String, Boolean>>(){}.getType());
+		String defaultButtons = gson.toJson(DefaultConfig.getButtons() , new TypeToken<Map<String, ButtonInfo>>(){}.getType());
 		
 		try {
 			//Writes the default values to json file
 			FileWriter writer;
 			writer = new FileWriter(configFile);
-			writer.write(json);
+			writer.write(defaultBooleans + "\n\n" + defaultButtons);
 			writer.close();
 		} catch (IOException e) {
 			PauseMenuEdits.LOGGER.warn("This went wrong with the config file" + e.toString());
 		}
 	}
+	
 	void populateAssets() {
 		try { 
 			URI stream = this.getClass().getResource("/assets/pausemenuedits/textures").toURI();

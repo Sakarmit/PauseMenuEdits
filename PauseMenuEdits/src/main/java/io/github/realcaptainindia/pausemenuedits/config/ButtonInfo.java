@@ -1,9 +1,12 @@
 package io.github.realcaptainindia.pausemenuedits.config;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.widget.button.Button.IPressable;
 import net.minecraft.util.ResourceLocation;
 
-public class CustomButton {
+public class ButtonInfo {
+	static Minecraft game = Minecraft.getInstance();
+	
 	public final int x_pos;
 	public final int y_pos;
 	public final int width;
@@ -15,7 +18,7 @@ public class CustomButton {
 	private final String action_val;
 	private final String texture;
 	
-	public CustomButton(int x_pos, int y_pos, int width, int height, String texture, int texstartx,int texstarty, String action, String value) {
+	public ButtonInfo(int x_pos, int y_pos, int width, int height, String texture, int texstartx,int texstarty, String action, String value) {
 		this.x_pos = x_pos;
 		this.y_pos = y_pos;
 		this.width = width;
@@ -28,7 +31,8 @@ public class CustomButton {
 	}
 
 	public ResourceLocation getTexture() {
-		return new ResourceLocation(texture);
+		
+		return game.textureManager.getDynamicTextureLocation(texture, null);
 	}
 
 	public IPressable getAction() {

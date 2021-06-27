@@ -2,7 +2,6 @@ package io.github.realcaptainindia.pausemenuedits;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import io.github.realcaptainindia.pausemenuedits.config.ConfigLoader;
 import net.minecraft.client.gui.screen.IngameMenuScreen;
 import net.minecraftforge.client.event.GuiOpenEvent;
@@ -12,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod(PauseMenuEdits.MODID)
 public class PauseMenuEdits {
-
+	
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MODID = "pausemenuedits";
 	
@@ -25,7 +24,7 @@ public class PauseMenuEdits {
 	@SubscribeEvent
 	public void menuchanger(GuiOpenEvent event) {
     	if(event.getGui() instanceof IngameMenuScreen) {
-   		 event.setGui(new PauseMenuCreator());
+			event.setGui(new PauseMenuCreator());
     	}
 	}
 }

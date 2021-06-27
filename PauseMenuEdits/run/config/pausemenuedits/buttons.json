@@ -1,4 +1,8 @@
 {
+  "Custom Textures": false
+}
+
+{
   "UnPause Button": {
     "x_pos": -102,
     "y_pos": 70,
@@ -8,7 +12,7 @@
     "texstarty": 0,
     "action": "opengui",
     "action_val": "Unpause",
-    "texture": "pausemenuedits:textures/textures/BigButton.png"
+    "texture": "big_button"
   },
   "Advancements Button": {
     "x_pos": -102,
@@ -19,7 +23,7 @@
     "texstarty": 0,
     "action": "opengui",
     "action_val": "Advancement",
-    "texture": "pausemenuedits:textures/textures/MediumButton.png"
+    "texture": "medium_button.png"
   },
   "Statistics Button": {
     "x_pos": 4,
@@ -30,7 +34,7 @@
     "texstarty": 0,
     "action": "opengui",
     "action_val": "Statistics",
-    "texture": "pausemenuedits:textures/textures/MediumButton.png"
+    "texture": "medium_button.png"
   },
   "Options Button": {
     "x_pos": -102,
@@ -41,7 +45,7 @@
     "texstarty": 0,
     "action": "opengui",
     "action_val": "Options",
-    "texture": "pausemenuedits:textures/textures/BigButton.png"
+    "texture": "big_button.png"
   },
   "Mods List Button": {
     "x_pos": -102,
@@ -52,7 +56,7 @@
     "texstarty": 0,
     "action": "opengui",
     "action_val": "Mods List",
-    "texture": "pausemenuedits:textures/textures/MediumButton.png"
+    "texture": "medium_button.png"
   },
   "Lan Button": {
     "x_pos": 4,
@@ -63,7 +67,7 @@
     "texstarty": 0,
     "action": "opengui",
     "action_val": "Lan",
-    "texture": "pausemenuedits:textures/textures/MediumButton.png"
+    "texture": "medium_button.png"
   },
   "Main Menu Button": {
     "x_pos": -102,
@@ -74,6 +78,6 @@
     "texstarty": 0,
     "action": "opengui",
     "action_val": "Quit",
-    "texture": "pausemenuedits:textures/textures/BigButton.png"
+    "texture": "big_button.png"
   }
 }
