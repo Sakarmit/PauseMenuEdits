@@ -41,6 +41,11 @@ public class ConfigLoader {
 			boolConfigVals = gson.fromJson(configBoolean,new TypeToken<Map<String, Boolean>>() {}.getType());
 			Buttons = gson.fromJson(configButtons, new TypeToken<Map<String, ButtonInfo>>() {}.getType());
 			
+			//Creates asset folder if custom assets enable and if folder doesn't exist
+			if(boolConfigVals.get("Custom Textures")) {
+				assetsFolder.mkdir();
+			}
+			
 		} catch (IOException e) {
 			PauseMenuEdits.LOGGER.warn("This went wrong with the mod files" + e.toString());
 		}
@@ -56,10 +61,6 @@ public class ConfigLoader {
 				populateButtonConfig();
 			}
 			
-			//Creates and fills asset Folder
-			if(assetsFolder.mkdir() || (assetsFolder.list().length == 0)) {
-				populateAssets();
-			}
 		} catch (IOException e) {
 			PauseMenuEdits.LOGGER.warn("This went wrong with the mod files" + e.toString());
 		}
@@ -82,14 +83,14 @@ public class ConfigLoader {
 		}
 	}
 	
-	void populateAssets() {
-		try { 
-			URI stream = this.getClass().getResource("/assets/pausemenuedits/textures").toURI();
-			
-			File textureFolder = new File(stream);
-			FileUtils.copyDirectory(textureFolder, assetsFolder);
-		} catch (Exception e) {
-			PauseMenuEdits.LOGGER.warn("This went wrong with the texture files" + e.toString());
-		}
-	}
+//	void populateAssets() {
+//		try { 
+//			URI stream = this.getClass().getResource("/assets/pausemenuedits/textures").toURI();
+//			
+//			File textureFolder = new File(stream);
+//			FileUtils.copyDirectory(textureFolder, assetsFolder);
+//		} catch (Exception e) {
+//			PauseMenuEdits.LOGGER.warn("This went wrong with the texture files" + e.toString());
+//		}
+//	}
 }
