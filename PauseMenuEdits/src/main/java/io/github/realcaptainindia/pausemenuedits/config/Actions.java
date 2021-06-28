@@ -19,37 +19,58 @@ import net.minecraft.util.text.TranslationTextComponent;
 public class Actions {
 	static Button.IPressable output;
 
-	public static IPressable JsontoAction(String action, String value) {
+	public static IPressable JsontoAction(String value) {
 		Minecraft game = Minecraft.getInstance();
 		Screen currentScreen = game.currentScreen;
 
-		if (action.equals("opengui")) {
-			switch (value) {
-			case "Advancement":
+		if (value.startsWith("h") || value.startsWith("w")) {
+			output = (button) -> {
+				game.displayGuiScreen(new ConfirmOpenLinkScreen((open) -> {
+					if (open) {
+						Util.getOSType().openURI(value);
+					}
+					game.displayGuiScreen(currentScreen);
+				}, value, true));
+			};
+		} else {
+			switch (value.substring(0, 1).toLowerCase()) {
+			case "u":
+				// unpause
+				output = (button) -> {
+					game.displayGuiScreen((Screen) null);
+				};
+				break;
+
+			case "a":
+				// advancement
 				output = (button) -> {
 					game.displayGuiScreen(new AdvancementsScreen(game.player.connection.getAdvancementManager()));
 				};
 				break;
 
-			case "Statistics":
+			case "s":
+				// stats
 				output = (button) -> {
 					game.displayGuiScreen(new StatsScreen(currentScreen, game.player.getStats()));
 				};
 				break;
 
-			case "Options":
+			case "o":
+				// options
 				output = (button) -> {
 					game.displayGuiScreen(new OptionsScreen(currentScreen, game.gameSettings));
 				};
 				break;
 
-			case "Mods List":
+			case "m":
+				// mods option
 				output = (button) -> {
 					game.displayGuiScreen(new net.minecraftforge.fml.client.gui.screen.ModListScreen(currentScreen));
 				};
 				break;
 
-			case "Lan":
+			case "l":
+				// lan
 				output = (button) -> {
 					if (game.isSingleplayer() && !game.getIntegratedServer().getPublic()) {
 						game.displayGuiScreen(new ShareToLanScreen(currentScreen));
@@ -57,7 +78,8 @@ public class Actions {
 				};
 				break;
 
-			case "Quit":
+			case "q":
+				// quit
 				output = (button) -> {
 					boolean flag = game.isIntegratedServerRunning();
 					button.active = false;
@@ -73,27 +95,12 @@ public class Actions {
 				break;
 
 			default:
+				PauseMenuEdits.LOGGER.warn("\"" + value + "\" is an invaild action coverting to unpause button");
 				output = (button) -> {
 					game.displayGuiScreen((Screen) null);
 				};
 				break;
-
 			}
-
-		} else if (action.equals("openurl")) {
-			output = (button) -> {
-				game.displayGuiScreen(new ConfirmOpenLinkScreen((open) -> {
-					if (open) {
-						Util.getOSType().openURI(value);
-					}
-					game.displayGuiScreen(currentScreen);
-				}, value, true));
-			};
-		} else {
-			PauseMenuEdits.LOGGER.warn("\"" + action + "\" is invaild coverting to unpause button");
-			output = (button) -> {
-				game.displayGuiScreen((Screen) null);
-			};
 		}
 		return output;
 	}

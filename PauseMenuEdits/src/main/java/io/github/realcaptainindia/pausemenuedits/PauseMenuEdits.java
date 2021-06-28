@@ -11,10 +11,10 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod(PauseMenuEdits.MODID)
 public class PauseMenuEdits {
-	
+
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MODID = "pausemenuedits";
-	
+
 	public PauseMenuEdits() {
 		new ConfigLoader();
 		MinecraftForge.EVENT_BUS.register(this);
@@ -23,8 +23,8 @@ public class PauseMenuEdits {
 	// Detects when pause menu is launched and updates it to custom menu
 	@SubscribeEvent
 	public void menuchanger(GuiOpenEvent event) {
-    	if(event.getGui() instanceof IngameMenuScreen) {
+		if (event.getGui() instanceof IngameMenuScreen) {
 			event.setGui(new PauseMenuCreator());
-    	}
+		}
 	}
 }

@@ -19,14 +19,14 @@ public class PauseMenuCreator extends Screen {
 	}
 
 	protected void init() {
-		//Gets the center of screen
+		// Gets the center of screen
 		int w = this.width / 2;
 		int h = this.height / 2;
-		
-		//Creates all buttons from Buttons Map
+
+		// Creates all buttons from Buttons Map
 		for (ButtonInfo val : ConfigLoader.Buttons.values()) {
-				this.addButton(new ImageButton(w + val.x_pos, h - val.y_pos, val.width, val.height, 0, 0, 20,
-						val.getTexture(), 204, 40, val.getAction()));
+			this.addButton(new ImageButton(w + val.x_position, h - val.y_position, val.width, val.height, 0, 0, 20,
+					val.getTexture(), 204, 40, val.getAction()));
 		}
 	}
 
