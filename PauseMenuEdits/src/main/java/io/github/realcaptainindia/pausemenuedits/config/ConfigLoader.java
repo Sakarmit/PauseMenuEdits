@@ -32,8 +32,8 @@ public class ConfigLoader {
 			// Reads values from Config to a Buttons Map
 			String configString = Files.readString(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits\\buttons.json"));
 
-			String configBoolean = configString.substring(0, configString.indexOf("\n\n"));
-			String configButtons = configString.substring(configString.indexOf("\n\n"));
+			String configBoolean = configString.substring(0, configString.indexOf("Buttons:"));
+			String configButtons = configString.substring(configString.indexOf("Buttons:") + 8);
 
 			boolConfigVals = gson.fromJson(configBoolean, new TypeToken<Map<String, Boolean>>() {
 			}.getType());
@@ -77,7 +77,7 @@ public class ConfigLoader {
 			// Writes the default values to json file
 			FileWriter writer;
 			writer = new FileWriter(configFile);
-			writer.write(defaultBooleans + "\n\n" + defaultButtons);
+			writer.write(defaultBooleans + "\nButtons:\n" + defaultButtons);
 			writer.close();
 		} catch (IOException e) {
 			PauseMenuEdits.LOGGER.warn("This went wrong with the config file" + e.toString());
