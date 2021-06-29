@@ -3,78 +3,78 @@
 }
 Buttons:
 {
-  "UnPause Button": {
+  "Return To Game": {
     "x_position": -102,
     "y_position": 70,
     "width": 204,
     "height": 20,
-    "texture": "big.png",
+    "texture": "Default.png",
     "texture_start_x": 0,
     "texture_start_y": 0,
     "action_value": "Unpause",
     "show_name": true
   },
-  "Advancements Button": {
+  "Advancements": {
     "x_position": -102,
     "y_position": 45,
     "width": 98,
     "height": 20,
-    "texture": "medium.png",
+    "texture": "Default.png",
     "texture_start_x": 0,
     "texture_start_y": 0,
     "action_value": "Advancement",
     "show_name": true
   },
-  "Statistics Button": {
+  "Statistics": {
     "x_position": 4,
     "y_position": 45,
     "width": 98,
     "height": 20,
-    "texture": "medium.png",
+    "texture": "Default.png",
     "texture_start_x": 0,
     "texture_start_y": 0,
     "action_value": "Statistics",
     "show_name": true
   },
-  "Options Button": {
+  "Options...": {
     "x_position": -102,
     "y_position": 20,
     "width": 204,
     "height": 20,
-    "texture": "big.png",
+    "texture": "Default.png",
     "texture_start_x": 0,
     "texture_start_y": 0,
     "action_value": "Options",
     "show_name": true
   },
-  "Mods List Button": {
+  "Mods List": {
     "x_position": -102,
     "y_position": -5,
     "width": 98,
     "height": 20,
-    "texture": "medium.png",
+    "texture": "Default.png",
     "texture_start_x": 0,
     "texture_start_y": 0,
     "action_value": "Mods List",
     "show_name": true
   },
-  "Lan Button": {
+  "Open to LAN": {
     "x_position": 4,
     "y_position": -5,
     "width": 98,
     "height": 20,
-    "texture": "medium.png",
+    "texture": "Default.png",
     "texture_start_x": 0,
     "texture_start_y": 0,
     "action_value": "Lan",
     "show_name": true
   },
-  "Main Menu Button": {
+  "Disconnect": {
     "x_position": -102,
     "y_position": -30,
     "width": 204,
     "height": 20,
-    "texture": "big.png",
+    "texture": "Default.png",
     "texture_start_x": 0,
     "texture_start_y": 0,
     "action_value": "Quit",

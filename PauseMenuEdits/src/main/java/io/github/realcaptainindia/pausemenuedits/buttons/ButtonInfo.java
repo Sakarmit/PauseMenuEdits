@@ -1,10 +1,11 @@
-package io.github.realcaptainindia.pausemenuedits.config;
+package io.github.realcaptainindia.pausemenuedits.buttons;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
 import io.github.realcaptainindia.pausemenuedits.PauseMenuEdits;
+import io.github.realcaptainindia.pausemenuedits.config.Actions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.widget.button.Button.IPressable;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -23,13 +24,13 @@ public class ButtonInfo {
 	private final String texture;
 	public final int texture_start_x;
 	public final int texture_start_y;
-
 	private final String action_value;
 
 	public final Boolean show_name;
 
 	public ButtonInfo(Boolean nameShow, int x_pos, int y_pos, int width, int height, String texture, int texstartx,
 			int texstarty, String value) {
+		this.show_name = nameShow;
 		this.x_position = x_pos;
 		this.y_position = y_pos;
 		this.width = width;
@@ -38,7 +39,6 @@ public class ButtonInfo {
 		this.texture_start_x = texstartx;
 		this.texture_start_y = texstarty;
 		this.action_value = value;
-		this.show_name = nameShow;
 	}
 
 	public ResourceLocation getTexture() {

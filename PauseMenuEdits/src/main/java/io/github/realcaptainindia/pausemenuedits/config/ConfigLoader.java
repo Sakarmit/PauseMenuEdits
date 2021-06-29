@@ -12,6 +12,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import io.github.realcaptainindia.pausemenuedits.PauseMenuEdits;
+import io.github.realcaptainindia.pausemenuedits.buttons.ButtonInfo;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 public class ConfigLoader {
