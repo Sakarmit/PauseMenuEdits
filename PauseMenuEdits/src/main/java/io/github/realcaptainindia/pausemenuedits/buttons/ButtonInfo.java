@@ -23,8 +23,6 @@ public class ButtonInfo {
 	public final int height;
 	
 	private final String texture;
-	public final int texture_width;
-	public final int texture_height;
 	public final int texture_start_x;
 	public final int texture_start_y;
 	
@@ -34,7 +32,7 @@ public class ButtonInfo {
 	public final Boolean show_name;
 
 	public ButtonInfo(Boolean nameShow, int x_pos, int y_pos, int width, int height, String texture, int texstartx,
-			int texstarty, int texwidth, int texheight, String value) {
+			int texstarty, String value) {
 		this.show_name = nameShow;
 		
 		this.x_position = x_pos;
@@ -48,8 +46,6 @@ public class ButtonInfo {
 		this.texture = texture;
 		this.texture_start_x = texstartx;
 		this.texture_start_y = texstarty;
-		this.texture_width = texwidth;
-		this.texture_height = texheight;
 	}
 
 	public ResourceLocation getTexture() {
