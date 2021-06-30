@@ -21,39 +21,50 @@ public class ButtonInfo {
 
 	public final int width;
 	public final int height;
+	
 	private final String texture;
+	public final int texture_width;
+	public final int texture_height;
 	public final int texture_start_x;
 	public final int texture_start_y;
+	
+	
 	private final String action_value;
-
+	
 	public final Boolean show_name;
 
 	public ButtonInfo(Boolean nameShow, int x_pos, int y_pos, int width, int height, String texture, int texstartx,
-			int texstarty, String value) {
+			int texstarty, int texwidth, int texheight, String value) {
 		this.show_name = nameShow;
+		
 		this.x_position = x_pos;
 		this.y_position = y_pos;
+		
 		this.width = width;
 		this.height = height;
+		
+		this.action_value = value;
+		
 		this.texture = texture;
 		this.texture_start_x = texstartx;
 		this.texture_start_y = texstarty;
-		this.action_value = value;
+		this.texture_width = texwidth;
+		this.texture_height = texheight;
 	}
 
 	public ResourceLocation getTexture() {
 		try {
 			// Returns default button texture as ResourceLocation
-			if (texture.toLowerCase() == "default.png")
+			if ((texture.toLowerCase()).equals("default.png")) {
 				return new ResourceLocation("pausemenuedits:textures/default.png");
-
+			} else {
 			// Gets texture form config as ResourceLocation
 			InputStream stream = new FileInputStream(
 					FMLPaths.CONFIGDIR.get() + "\\pausemenuedits\\textures\\" + texture);
 			;
 			NativeImage textureNativeImage = NativeImage.read(stream);
 			return game.textureManager.getDynamicTextureLocation(texture, new DynamicTexture(textureNativeImage));
-
+			}
 		} catch (IOException e) {
 			// Returns default texture if custom is missing
 			PauseMenuEdits.LOGGER
