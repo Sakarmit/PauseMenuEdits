@@ -33,7 +33,7 @@ public class PauseMenuCreator extends Screen {
 			String name = val.show_name ? button.getKey() : "";
 			
 			this.addButton(new CustomButton(name, w + val.x_position, h - val.y_position, val.width, val.height, val.texture_start_x, val.texture_start_y, val.height,
-					val.getTexture(), val.width, val.height, val.getAction()));
+					val.getTexture(), val.getAction()));
 		}
 	}
 
