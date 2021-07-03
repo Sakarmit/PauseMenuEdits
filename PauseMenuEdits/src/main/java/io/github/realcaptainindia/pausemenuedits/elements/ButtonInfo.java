@@ -1,4 +1,4 @@
-package io.github.realcaptainindia.pausemenuedits.buttons;
+package io.github.realcaptainindia.pausemenuedits.elements;
 
 import java.io.FileInputStream;
 import java.io.IOException;

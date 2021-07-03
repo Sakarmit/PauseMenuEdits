@@ -1,4 +1,4 @@
-package io.github.realcaptainindia.pausemenuedits.buttons;
+package io.github.realcaptainindia.pausemenuedits.elements;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.systems.RenderSystem;

@@ -6,9 +6,9 @@ import java.util.Map.Entry;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 
-import io.github.realcaptainindia.pausemenuedits.buttons.ButtonInfo;
-import io.github.realcaptainindia.pausemenuedits.buttons.CustomButton;
 import io.github.realcaptainindia.pausemenuedits.config.ConfigLoader;
+import io.github.realcaptainindia.pausemenuedits.elements.ButtonInfo;
+import io.github.realcaptainindia.pausemenuedits.elements.CustomButton;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
@@ -26,7 +26,7 @@ public class PauseMenuCreator extends Screen {
 		int h = this.height / 2;
 
 		// Creates all buttons from Buttons Map
-		for (Entry<String, ButtonInfo> button : ConfigLoader.Buttons.entrySet()) {
+		for (Entry<String, ButtonInfo> button : ConfigLoader.buttonVals.entrySet()) {
 			
 			ButtonInfo val = button.getValue();
 			

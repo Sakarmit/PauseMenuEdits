@@ -3,7 +3,7 @@ package io.github.realcaptainindia.pausemenuedits.config;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import io.github.realcaptainindia.pausemenuedits.buttons.ButtonInfo;
+import io.github.realcaptainindia.pausemenuedits.elements.ButtonInfo;
 
 public class DefaultConfig {
 
