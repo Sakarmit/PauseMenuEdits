@@ -63,8 +63,8 @@ public class ButtonInfo {
 			}
 		} catch (IOException e) {
 			// Returns default texture if custom is missing
-			PauseMenuEdits.LOGGER
-			.info("This went wrong with button texture:" + e.getMessage() + ". Changing to default texture");
+			PauseMenuEdits.errorCount += 1;
+			PauseMenuEdits.LOGGER.warn("This went wrong with button texture:" + e.getMessage() + ". Changing to default texture");
 			return new ResourceLocation("pausemenuedits:textures/default.png");
 		}
 	}

@@ -14,7 +14,9 @@ public class PauseMenuEdits {
 
 	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MODID = "pausemenuedits";
-
+	
+	public static int errorCount = 0;
+	
 	public PauseMenuEdits() {
 		new ConfigLoader();
 		MinecraftForge.EVENT_BUS.register(this);

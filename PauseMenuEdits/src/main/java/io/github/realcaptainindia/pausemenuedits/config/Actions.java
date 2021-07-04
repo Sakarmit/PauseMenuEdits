@@ -104,6 +104,7 @@ public class Actions {
 				break;
 				
 			default:
+				PauseMenuEdits.errorCount += 1;
 				PauseMenuEdits.LOGGER.warn("\"" + value + "\" is an invaild action coverting to unpause button");
 				output = (button) -> {
 					game.displayGuiScreen((Screen) null);

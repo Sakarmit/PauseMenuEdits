@@ -44,6 +44,7 @@ public class ConfigLoader {
 			}
 
 		} catch (IOException e) {
+			PauseMenuEdits.errorCount += 1;
 			PauseMenuEdits.LOGGER.warn("This went wrong with loading the mod files: " + e.toString());
 		}
 	}
@@ -59,6 +60,7 @@ public class ConfigLoader {
 			}
 
 		} catch (IOException e) {
+			PauseMenuEdits.errorCount += 1;
 			PauseMenuEdits.LOGGER.warn("This went wrong with creating the config files: " + e.toString());
 		}
 	}
@@ -77,6 +79,7 @@ public class ConfigLoader {
 			writer.write(defaultBooleans + "\nButtons:\n" + defaultButtons);
 			writer.close();
 		} catch (IOException e) {
+			PauseMenuEdits.errorCount += 1;
 			PauseMenuEdits.LOGGER.warn("This went wrong with filling config file: " + e.toString());
 		}
 		
@@ -89,6 +92,7 @@ public class ConfigLoader {
 			return gson.fromJson(configButtons, new TypeToken<Map<String, ButtonInfo>>() {
 			}.getType());
 		} catch (JsonSyntaxException e) {
+			PauseMenuEdits.errorCount += 1;
 			PauseMenuEdits.LOGGER.warn("Invalid Buttons Config Check Formatting");
 			return DefaultConfig.getButtons();
 		}
@@ -101,6 +105,7 @@ public class ConfigLoader {
 			return gson.fromJson(configBoolean, new TypeToken<Map<String, Boolean>>() {
 			}.getType());
 		} catch (JsonSyntaxException e) {
+			PauseMenuEdits.errorCount += 1;
 			PauseMenuEdits.LOGGER.warn("Invalid Boolean Config Check Formatting");
 			return DefaultConfig.getBooleans();
 		}
