@@ -15,6 +15,7 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.widget.button.Button.IPressable;
 import net.minecraft.util.Util;
 import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraftforge.fml.loading.FMLPaths;
 
 public class Actions {
 	static Button.IPressable output;
@@ -22,7 +23,7 @@ public class Actions {
 	public static IPressable JsontoAction(String value) {
 		Minecraft game = Minecraft.getInstance();
 		Screen currentScreen = game.currentScreen;
-
+		
 		if (value.startsWith("h") || value.startsWith("w")) {
 			output = (button) -> {
 				game.displayGuiScreen(new ConfirmOpenLinkScreen((open) -> {
@@ -32,6 +33,8 @@ public class Actions {
 					game.displayGuiScreen(currentScreen);
 				}, value, true));
 			};
+		}else if(value.isBlank() || value.equals(null)) {
+			output = (button) -> {};
 		} else {
 			switch (value.substring(0, 1).toLowerCase()) {
 			case "u":
@@ -93,7 +96,13 @@ public class Actions {
 					}
 				};
 				break;
-
+			case "e":
+				//error button
+				output = (button) -> {
+							Util.getOSType().openFile(FMLPaths.CONFIGDIR.get().resolve("pausemenuedits").toFile());
+						};
+				break;
+				
 			default:
 				PauseMenuEdits.LOGGER.warn("\"" + value + "\" is an invaild action coverting to unpause button");
 				output = (button) -> {
